@@ -2,7 +2,7 @@ public class QueenBoard {
   private int[][] board;
 
   public QueenBoard(int size) {
-
+    board = new int[size][size];
   }
 
   private boolean addQueen(int r, int c) {
@@ -26,7 +26,9 @@ public class QueenBoard {
   *(pythonic string notation for clarity,
   *excludes the character up to the *)
   */
-  public String toString(){}
+  public String toString(){
+
+  }
 
 
 
