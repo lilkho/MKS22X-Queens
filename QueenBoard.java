@@ -6,10 +6,10 @@ public class QueenBoard {
   }
 
   private boolean addQueen(int r, int c) {
-
+    return true;
   }
   private boolean removeQueen(int r, int c) {
-
+    return true;
   }
 
   /**
@@ -48,13 +48,17 @@ public class QueenBoard {
   *@throws IllegalStateException when the board starts with any non-zero value
 
   */
-  public boolean solve(){}
+  public boolean solve(){
+    return true;
+  }
 
   /**
   *@return the number of solutions found, and leaves the board filled with only 0's
   *@throws IllegalStateException when the board starts with any non-zero value
   */
-  public int countSolutions(){}
+  public int countSolutions(){
+    return 0;
+  }
 
 
 }
