@@ -27,7 +27,15 @@ public class QueenBoard {
   *excludes the character up to the *)
   */
   public String toString(){
-
+    String s = "";
+    for (int i=0;i<board.length;i++) {
+      for (int j=0;j<board.length;j++) {
+        if (board[i][j]==0) s+="_ ";
+        if (board[i][j]==-1) s+="Q ";
+      }
+      s+="\n";
+    }
+    return s;
   }
 
 
