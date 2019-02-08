@@ -6,9 +6,13 @@ public class QueenBoard {
   }
 
   private boolean addQueen(int r, int c) {
+    if (board[r][c]==0) board[r][c]=-1;
+    else return false;
     return true;
   }
   private boolean removeQueen(int r, int c) {
+    if (board[r][c]==-1) board[r][c]=0;
+    else return false;
     return true;
   }
 
@@ -49,7 +53,10 @@ public class QueenBoard {
 
   */
   public boolean solve(){
-    return true;
+
+  }
+  private boolean solve(int r, int c){
+
   }
 
   /**
