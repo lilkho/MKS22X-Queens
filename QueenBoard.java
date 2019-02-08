@@ -20,9 +20,18 @@ public class QueenBoard {
     return false;
   }
   private boolean removeQueen(int r, int c) {
-    if (board[r][c]==-1) board[r][c]=0;
-    else return false;
-    return true;
+    if (board[r][c]==0){
+      board[r][c]=0;
+      for (int i=1;c+i<board.length;i++) {
+        board[r][c+i]--;
+        if (r-i>=0)
+          board[r-i][c+1]--;
+        if (r+i<board.length)
+          board[r+i][c+i]--;
+      }
+      return true;
+    }
+    return false;
   }
 
   /**
@@ -43,7 +52,7 @@ public class QueenBoard {
     String s = "";
     for (int i=0;i<board.length;i++) {
       for (int j=0;j<board.length;j++) {
-        if (board[i][j]==0) s+="_ ";
+        if (board[i][j]>=0) s+="_ ";
         if (board[i][j]==-1) s+="Q ";
       }
       s+="\n";
@@ -65,9 +74,7 @@ public class QueenBoard {
     return solve(0,0);
   }
   private boolean solve(int r, int c){
-    if (addQueen(r,c)) {
-
-    }
+    return addQueen(r,c);
   }
 
   /**
