@@ -20,7 +20,7 @@ public class QueenBoard {
     return false;
   }
   private boolean removeQueen(int r, int c) {
-    if (board[r][c]==0){
+    if (board[r][c]==-1){
       board[r][c]=0;
       for (int i=1;c+i<board.length;i++) {
         board[r][c+i]--;
