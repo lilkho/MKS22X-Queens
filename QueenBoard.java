@@ -71,10 +71,16 @@ public class QueenBoard {
 
   */
   public boolean solve(){
-    return solve(r,c);
+    return solve(0);
   }
-  private boolean solve(int r, int c){
-
+  private boolean solve(int r){
+    if (r==board.length) return true;
+    for (int i=0; i<board.length; i++) {
+      if (addQueen(r,i)) {
+        return solve(r+1);
+      }
+    }
+    return false;
   }
 
   /**
