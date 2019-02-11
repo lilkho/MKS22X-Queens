@@ -52,7 +52,7 @@ public class QueenBoard {
     String s = "";
     for (int i=0;i<board.length;i++) {
       for (int j=0;j<board.length;j++) {
-        if (board[i][j]>=0) s+="_ ";
+        if (board[i][j]>=0) s+=board[i][j]+" ";
         if (board[i][j]==-1) s+="Q ";
       }
       s+="\n";
@@ -71,10 +71,10 @@ public class QueenBoard {
 
   */
   public boolean solve(){
-    return solve(0,0);
+    return solve(r,c);
   }
   private boolean solve(int r, int c){
-    return addQueen(r,c);
+
   }
 
   /**
