@@ -73,11 +73,15 @@ public class QueenBoard {
   public boolean solve(){
     return solve(0);
   }
-  private boolean solve(int r){
-    if (r==board.length) return true;
+  private boolean solve(int c){
+    if (c==board.length) return true;
     for (int i=0; i<board.length; i++) {
-      if (addQueen(r,i)) {
-        return solve(r+1);
+      if (addQueen(i,c)) {
+        if (solve(c+1)) {
+          return true;
+        } else {
+          removeQueen(i,c);
+        }
       }
     }
     return false;
