@@ -91,13 +91,10 @@ public class QueenBoard {
       System.out.println(Text.go(1,1));
       System.out.println(this);Text.wait(200);
       if (addQueen(i,c)) {
-        if (solve(c+1)) {
+        if (solve(c+1))
           return true;
-        } else {
-          removeQueen(i,c);
-        }
+        removeQueen(i,c);
       }
-
     }
     return false;
   }
@@ -107,8 +104,18 @@ public class QueenBoard {
   *@throws IllegalStateException when the board starts with any non-zero value
   */
   public int countSolutions(){
-    return 0;
+    return countSolutions(0);
   }
-
+  private int countSolutions(int c){
+    int solutions = 0;
+    if (c==board.length) return 1;
+    for (int i=0; i<board.length; i++) {
+      if (addQueen(i,c)) {
+        solutions+=countSolutions(c+1);
+      }
+      removeQueen(i,c);
+    }
+    return solutions;
+  }
 
 }

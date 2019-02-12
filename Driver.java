@@ -22,5 +22,6 @@ public class Driver {
     board5.solve();
     System.out.println(board5);
     System.out.println(board5.toStringDebug());
+    System.out.println(board5.countSolutions());
   }
 }
