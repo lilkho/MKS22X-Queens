@@ -82,6 +82,7 @@ public class QueenBoard {
 
   */
   public boolean solve(){
+    clear();
     if (board[0][0]!=0) throw new IllegalStateException();
     return solve(0);
   }
@@ -102,6 +103,7 @@ public class QueenBoard {
   *@throws IllegalStateException when the board starts with any non-zero value
   */
   public int countSolutions(){
+    clear();
     if (board[0][0]!=0) throw new IllegalStateException();
     return countSolutions(0);
   }
@@ -115,6 +117,10 @@ public class QueenBoard {
       removeQueen(i,c);
     }
     return solutions;
+  }
+
+  private void clear() {
+    board=new int[board.length][board.length];
   }
 
 }
