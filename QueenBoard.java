@@ -11,7 +11,7 @@ public class QueenBoard {
       for (int i=1;c+i<board.length;i++) {
         board[r][c+i]++;
         if (r-i>=0)
-          board[r-i][c+1]++;
+          board[r-i][c+i]++;
         if (r+i<board.length)
           board[r+i][c+i]++;
       }
@@ -25,7 +25,7 @@ public class QueenBoard {
       for (int i=1;c+i<board.length;i++) {
         board[r][c+i]--;
         if (r-i>=0)
-          board[r-i][c+1]--;
+          board[r-i][c+i]--;
         if (r+i<board.length)
           board[r+i][c+i]--;
       }
@@ -86,10 +86,10 @@ public class QueenBoard {
     return solve(0);
   }
   private boolean solve(int c){
-    if (c==board.length) return true;
+    if (c>=board.length) return true;
     for (int i=0; i<board.length; i++) {
       System.out.println(Text.go(1,1));
-      System.out.println(this);Text.wait(200);
+      System.out.println(this);Text.wait(10);
       if (addQueen(i,c)) {
         if (solve(c+1))
           return true;
@@ -108,7 +108,7 @@ public class QueenBoard {
   }
   private int countSolutions(int c){
     int solutions = 0;
-    if (c==board.length) return 1;
+    if (c>=board.length) return 1;
     for (int i=0; i<board.length; i++) {
       if (addQueen(i,c)) {
         solutions+=countSolutions(c+1);
