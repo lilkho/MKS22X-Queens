@@ -52,8 +52,7 @@ public class QueenBoard {
     String s = "";
     for (int i=0;i<board.length;i++) {
       for (int j=0;j<board.length;j++) {
-        //if (board[i][j]>=0) s+="_ ";
-        if (board[i][j]>=0) s+=board[i][j]+" ";
+        if (board[i][j]>=0) s+="_ ";
         if (board[i][j]==-1) s+="Q ";
       }
       s+="\n";
@@ -83,13 +82,12 @@ public class QueenBoard {
 
   */
   public boolean solve(){
+    if (board[0][0]!=0) throw new IllegalStateException();
     return solve(0);
   }
   private boolean solve(int c){
     if (c>=board.length) return true;
     for (int i=0; i<board.length; i++) {
-      System.out.println(Text.go(1,1));
-      System.out.println(this);Text.wait(10);
       if (addQueen(i,c)) {
         if (solve(c+1))
           return true;
@@ -104,6 +102,7 @@ public class QueenBoard {
   *@throws IllegalStateException when the board starts with any non-zero value
   */
   public int countSolutions(){
+    if (board[0][0]!=0) throw new IllegalStateException();
     return countSolutions(0);
   }
   private int countSolutions(int c){
